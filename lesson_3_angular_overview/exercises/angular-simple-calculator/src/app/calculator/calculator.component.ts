@@ -9,7 +9,7 @@ export class CalculatorComponent implements OnInit {
   title = 'angular-simple-calculator';
   public num1: number;
   public num2: number;
-  public result: number;
+  public result: any = 0;
 
   ngOnInit(): void {
   }
@@ -17,20 +17,34 @@ export class CalculatorComponent implements OnInit {
   constructor() {
   }
 
+  setValue1($event: any): void {
+    this.num1 = $event.target.value;
+  }
+
+  setValue2($event: any): void {
+    this.num2 = $event.target.value;
+  }
+
+
   add() {
-    this.result = this.num1 + this.num2;
+    this.result = Number(this.num1) + Number(this.num2);
   }
 
   sub() {
-    this.result = this.num1 - this.num2;
+    this.result = Number(this.num1) - Number(this.num2);
   }
 
   multiply() {
-    this.result = this.num1 * this.num2;
+    this.result = Number(this.num1) * Number(this.num2);
   }
 
   divide() {
-    this.result = this.num1 / this.num2;
+    // tslint:disable-next-line:triple-equals
+    if (this.num2 == 0) {
+      this.result = 'can not divide for 0';
+    } else {
+      this.result = Number(this.num1) / Number(this.num2);
+    }
   }
 
 
