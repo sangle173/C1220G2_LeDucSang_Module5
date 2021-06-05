@@ -16,42 +16,13 @@
 
     <a ngbNavLink>Service</a>
     <ng-template ngbNavContent>
+      <app-service></app-service>
     </ng-template>
   </li>
   <li ngbNavItem>
     <a ngbNavLink>Contract</a>
     <ng-template ngbNavContent>
-      <div class="row" style="background-color: antiquewhite">
-        <div class="col-8">
-          <table width="100%">
-            <tr>
-              <td>
-                list
-              </td>
-              <td>
-                list
-              </td>
-              <td>
-                list
-              </td>
-              <td>
-                list
-              </td>
-              <td>
-                list
-              </td>
-              <td>
-                list
-              </td>
-
-
-            </tr>
-          </table>
-        </div>
-        <div class="col-4 mt-3">
-          <app-create-customer></app-create-customer>
-        </div>
-      </div>
+      <app-create-contract></app-create-contract>
     </ng-template>
   </li>
 </ul>

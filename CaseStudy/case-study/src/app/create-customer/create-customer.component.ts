@@ -16,7 +16,7 @@ export class CreateCustomerComponent implements OnInit {
       phoneNumber: '0909090909',
       email: 'sangle@gmail.com',
       address: 'Da Nang',
-      customerType: 'Diamond',
+      customerType: 'Diamond'
     },
 
     {
@@ -25,7 +25,7 @@ export class CreateCustomerComponent implements OnInit {
       phoneNumber: '0909090909',
       email: 'sangle@gmail.com',
       address: 'Da Nang',
-      customerType: 'Diamond',
+      customerType: 'Diamond'
     },
 
     {
@@ -34,7 +34,7 @@ export class CreateCustomerComponent implements OnInit {
       phoneNumber: '0909090909',
       email: 'sangle@gmail.com',
       address: 'Da Nang',
-      customerType: 'Diamond',
+      customerType: 'Diamond'
     },
 
     {
@@ -43,7 +43,7 @@ export class CreateCustomerComponent implements OnInit {
       phoneNumber: '0909090909',
       email: 'sangle@gmail.com',
       address: 'Da Nang',
-      customerType: 'Diamond',
+      customerType: 'Diamond'
     },
 
     {
@@ -52,7 +52,7 @@ export class CreateCustomerComponent implements OnInit {
       phoneNumber: '0909090909',
       email: 'sangle@gmail.com',
       address: 'Da Nang',
-      customerType: 'Diamond',
+      customerType: 'Diamond'
     },
     {
       name: 'Le Duc Sang',
@@ -60,7 +60,7 @@ export class CreateCustomerComponent implements OnInit {
       phoneNumber: '0909090909',
       email: 'sangle@gmail.com',
       address: 'Da Nang',
-      customerType: 'Diamond',
+      customerType: 'Diamond'
     },
 
     {
@@ -69,7 +69,7 @@ export class CreateCustomerComponent implements OnInit {
       phoneNumber: '0909090909',
       email: 'sangle@gmail.com',
       address: 'Da Nang',
-      customerType: 'Diamond',
+      customerType: 'Diamond'
     },
     {
       name: 'Le Duc Sang',
@@ -77,7 +77,7 @@ export class CreateCustomerComponent implements OnInit {
       phoneNumber: '0909090909',
       email: 'sangle@gmail.com',
       address: 'Da Nang',
-      customerType: 'Diamond',
+      customerType: 'Diamond'
     }
   ];
 
