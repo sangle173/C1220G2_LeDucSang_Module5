@@ -1,0 +1,36 @@
+<h2 class="text-info text-center">Today's article</h2>
+<hr>
+<div *ngFor="let art of articles">
+  <table class="container">
+    <tbody>
+    <tr>
+      <td><a href="{{art.url}}" target="_blank">{{art.title}}</a>:
+      </td>
+      <td style="float: right" class="text-info">
+        <app-like></app-like>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+
+</div>
+<hr>
+<div class="container w-50">
+  <h2 class="h2 text-success">Article Information</h2>
+  <div class="form-outline mb-4">
+    <input [(ngModel)]="article.title" type="text" id="title" class="form-control"/>
+    <label class="form-label" for="title">title</label>
+  </div>
+
+  <!-- Email input -->
+  <div class="form-outline mb-4">
+    <input [(ngModel)]="article.url" type="text" id="url" class="form-control"/>
+    <label class="form-label" for="url">Url</label>
+  </div>
+  <div class="text-center">
+    <button class="btn btn-primary" (click)="addNewArticle()">Add</button>
+  </div>
+</div>
+
+
+
