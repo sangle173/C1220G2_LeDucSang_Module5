@@ -1,0 +1,60 @@
+<app-navbar></app-navbar>
+<ul ngbNav #nav="ngbNav" class="nav-tabs">
+  <li ngbNavItem>
+    <a ngbNavLink>Customer</a>
+    <ng-template ngbNavContent>
+      <app-create-customer></app-create-customer>
+    </ng-template>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink>Employee</a>
+    <ng-template ngbNavContent>
+      <app-create-employee></app-create-employee>
+    </ng-template>
+  </li>
+  <li ngbNavItem>
+
+    <a ngbNavLink>Service</a>
+    <ng-template ngbNavContent>
+    </ng-template>
+  </li>
+  <li ngbNavItem>
+    <a ngbNavLink>Contract</a>
+    <ng-template ngbNavContent>
+      <div class="row" style="background-color: antiquewhite">
+        <div class="col-8">
+          <table width="100%">
+            <tr>
+              <td>
+                list
+              </td>
+              <td>
+                list
+              </td>
+              <td>
+                list
+              </td>
+              <td>
+                list
+              </td>
+              <td>
+                list
+              </td>
+              <td>
+                list
+              </td>
+
+
+            </tr>
+          </table>
+        </div>
+        <div class="col-4 mt-3">
+          <app-create-customer></app-create-customer>
+        </div>
+      </div>
+    </ng-template>
+  </li>
+</ul>
+<div [ngbNavOutlet]="nav"></div>
+
+<app-footer></app-footer>
