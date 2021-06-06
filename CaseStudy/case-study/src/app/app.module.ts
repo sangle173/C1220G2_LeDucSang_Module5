@@ -1,6 +1,6 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
-import {Routes, RouterModule, Route} from '@angular/router';
+import {Routes, RouterModule} from '@angular/router';
 
 const routerConfig: Routes = [
   {path: 'customers', component: CreateCustomerComponent},
