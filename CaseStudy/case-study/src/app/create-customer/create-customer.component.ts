@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Customer} from '../customer';
 
+const FILTER_PAG_REGEX = /[^0-9]/g;
+
 const CUSTOMERS: Customer[] = [
   {
     name: 'Le Duc Sang',
@@ -84,7 +86,8 @@ export class CreateCustomerComponent implements OnInit {
   collectionSize = CUSTOMERS.length;
   customer: Customer = {};
   customers: Customer[];
-
+  title: 'Customers Manager';
+  dateDemo: '2020-07-09';
   constructor() {
     this.refreshCustomers();
   }
@@ -96,6 +99,13 @@ export class CreateCustomerComponent implements OnInit {
     this.customers.push(this.customer);
   }
 
+  selectPage(page: string) {
+    this.page = parseInt(page, 10) || 1;
+  }
+
+  formatInput(input: HTMLInputElement) {
+    input.value = input.value.replace(FILTER_PAG_REGEX, '');
+  }
 
   refreshCustomers() {
     this.customers = CUSTOMERS

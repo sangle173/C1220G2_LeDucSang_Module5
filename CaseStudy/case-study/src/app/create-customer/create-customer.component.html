@@ -21,7 +21,7 @@
       <tr *ngFor="let customer of customers; index as i">
         <th scope="row">{{ i + 1 }}</th>
         <td>{{customer.name}}</td>
-        <td>{{customer.birthday}}</td>
+        <td>{{customer.birthday | date: "MM/dd/yyyy"}}</td>
         <td>{{customer.phoneNumber}}</td>
         <td>{{customer.email}}</td>
         <td>{{customer.address}}</td>
@@ -31,9 +31,34 @@
     </table>
     <div class="d-flex justify-content-between p-2">
       <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize"
-                      (pageChange)="refreshCustomers()">
+                      (pageChange)="refreshCustomers()" [boundaryLinks]="true">
+        <ng-template ngbPaginationPages let-page let-pages="pages">
+          <li class="ngb-custom-pages-item" *ngIf="pages.length > 0">
+            <div class="form-group d-flex flex-nowrap px-2">
+              <label
+                id="paginationInputLabel"
+                for="paginationInput"
+                class="col-form-label mr-2 ml-1"
+              >Page</label>
+              <input #i
+                     type="text"
+                     inputmode="numeric"
+                     pattern="[0-9]*"
+                     class="form-control custom-pages-input"
+                     id="paginationInput"
+                     [value]="page"
+                     (keyup.enter)="selectPage(i.value)"
+                     (blur)="selectPage(i.value)"
+                     (input)="formatInput($any($event).target)"
+                     aria-labelledby="paginationInputLabel paginationDescription"
+                     style="width: 2.5rem"
+              />
+              <span id="paginationDescription" class="col-form-label text-nowrap px-2">
+                  of {{pages.length}}</span>
+            </div>
+          </li>
+        </ng-template>
       </ngb-pagination>
-
       <select class="custom-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshCustomers()">
         <option [ngValue]="2">2 items per page</option>
         <option [ngValue]="4">4 items per page</option>
@@ -97,6 +122,9 @@
       </div>
     </div>
   </div>
+</div>
+<div>
+  <p>{{dateDemo | date: "MM/dd/yyyy"}}</p>
 </div>
 
 

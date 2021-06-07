@@ -3,11 +3,11 @@ import {NgModule} from '@angular/core';
 import {Routes, RouterModule} from '@angular/router';
 
 const routerConfig: Routes = [
-  {path: 'customers', component: CreateCustomerComponent},
+  {path: 'customers', component: CreateCustomerComponent, data: {title: 'Customer Manager'}},
   {path: 'employees', component: CreateEmployeeComponent},
   {path: 'services', component: ServiceComponent},
   {path: 'contracts', component: CreateContractComponent},
-  {path: 'home', component: MainComponent}
+  {path: '', component: MainComponent}
 ];
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -25,6 +25,8 @@ import {FormsModule} from '@angular/forms';
 import {PageingComponent} from './pageing/pageing.component';
 import {ROUTES} from '@angular/router';
 import {MainComponent} from './main/main.component';
+import {BootstrapIconsModule} from 'ng-bootstrap-icons';
+import {allIcons} from 'ng-bootstrap-icons/icons';
 
 @NgModule({
   declarations: [
@@ -46,10 +48,14 @@ import {MainComponent} from './main/main.component';
     BrowserAnimationsModule,
     NgbModule,
     FormsModule,
-    RouterModule.forRoot(routerConfig)
+    RouterModule.forRoot(routerConfig),
+    BootstrapIconsModule.pick(allIcons)
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+    BootstrapIconsModule
+  ]
 })
 export class AppModule {
 }
