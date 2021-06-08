@@ -1,0 +1,39 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  height: 100vw;
+  background-color: #bbe1fa;
+}
+
+.digitalClock {
+  position: relative;
+  width: 300px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #b36363;
+  border: 20px solid #fff;
+  border-radius: 5px;
+  box-shadow: inset 0 0 15px black;
+  font-size: 26px;
+  color: white;
+  text-transform: uppercase;
+}
+
+.dayTitle {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+.digitalTime{
+  display: flex;
+  margin-bottom: 5px;
+}
+.ampm{
+  margin-top: 10px;
+  font-size: 12px;
+
+}

@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="mb-3">
+    <label for="init" class="message">Choose the second</label>
+    <br>
+    <input class="form-control w-25" type="number" [(ngModel)]="init" id="init">
+    <button (click)="startCountdown()" class="btn btn-info mt-3">Start timer</button>
+  </div>
+  <div class="message">{{startText}}</div>
+  <div class="countdownTimer">
+    {{counter}}
+  </div>
+  <div class="message">{{endText}}</div>
+</div>
+
