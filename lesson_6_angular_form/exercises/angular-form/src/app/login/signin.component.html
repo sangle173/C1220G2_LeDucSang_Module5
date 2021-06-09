@@ -1,0 +1,39 @@
+<h4>Login Page Exercise</h4>
+
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+  <table>
+    <tr>
+      <td><label for="email">Email address</label>
+      </td>
+      <td><input type="email" class="form-control" formControlName="email" id="email" placeholder="Enter email">
+      </td>
+      <td>
+        <small style="color: red"
+               *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.required">
+          email is required
+        </small>
+
+        <small style="color: red;"
+               *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.email">
+          email address not well format.
+        </small>
+      </td>
+    </tr>
+    <tr>
+      <td><label for="password">Password</label>
+      </td>
+      <td><input type="password" id="password" formControlName="password" placeholder="Password">
+      </td>
+      <td>
+        <small style="color: red;"
+               *ngIf="loginForm.controls.password.touched && loginForm.controls.password.errors?.minlength">
+          password is more than 5 char
+        </small>
+      </td>
+    </tr>
+  </table>
+
+  <div>
+  </div>
+  <button type="submit" class="btn btn-primary" [disabled]="!loginForm.valid">Submit</button>
+</form>

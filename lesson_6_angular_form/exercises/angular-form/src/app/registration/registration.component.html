@@ -1,0 +1,162 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" novalidate>
+        <table>
+          <tr>
+            <td><label for="lastname">Username </label></td>
+            <td><input type="text" id="lastname" name="lastname" formControlName="username">
+            </td>
+            <td style="color: red" [hidden]=""
+                *ngIf="!username?.valid && (username?.dirty
+    ||username?.touched)">
+              <div [hidden]="!username.errors.required">
+                username is required.
+              </div>
+              <div [hidden]="!username.errors.minlength">
+                username of minlength more than 10 char.
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="email">Email </label>
+            </td>
+            <td>
+              <input type="text" id="email" name="email" formControlName="email">
+            </td>
+            <td style="color: red"
+                *ngIf="!email?.valid && (email?.dirty
+    ||email?.touched)">
+              email is required.
+            </td>
+          </tr>
+          <tr>
+            <td><label for="password">Password </label>
+            </td>
+            <td><input type="password" id="password" formControlName="password">
+            </td>
+            <td style="color: red"
+                *ngIf="!registerForm.controls.password?.valid && (registerForm.controls.password?.dirty
+    ||registerForm.controls.password?.touched)">
+                  <span style="color: red"
+                        *ngIf="registerForm.controls.password.touched && registerForm.controls.password.errors?.invalidPassword">
+                                must be ...
+              </span>
+              <div [hidden]="!username.errors.required">
+                password is required.
+              </div>
+            </td>
+          </tr>
+          <tr>
+            <td><label for="conf-password">Confirm Password </label>
+            </td>
+            <td><input type="password" id="conf-password" formControlName="confirmPassword">
+            </td>
+            <td style="color: red"
+                *ngIf="confirmPassword?.valid && (confirmPassword?.dirty
+    ||confirmPassword?.touched)">
+              confirm password is required.
+            </td>
+            <td>
+              <div [hidden]="!confirmPassword.errors.required">
+                confirm password is required.
+              </div>
+              <div style="color: red"
+                   [hidden]="!registerForm.controls.confirmPassword.touched && registerForm.controls.confirmPassword.errors?.passwordMismatch">
+                <span>
+                  Passwords does not match
+                </span>
+              </div>
+
+            </td>
+          </tr>
+          <tr>
+            <td><label>Geneder </label></td>
+            <td>
+              <input type="radio" value="male" name="gender" formControlName="gender"> Male
+              <input type="radio" value="female" name="gender" formControlName="gender"> Female
+            </td>
+            <td style="color: red"
+                *ngIf="!registerForm.controls.gender?.valid && (registerForm.controls.gender?.dirty
+    ||registerForm.controls.gender?.touched)">
+              gender is required.
+            </td>
+          </tr>
+          <tr>
+            <td><label for="age">Age </label>
+            </td>
+            <td><input type="number" id="age" formControlName="age">
+            </td>
+            <td style="color: red"
+                *ngIf="!registerForm.controls.age?.valid && (registerForm.controls.age?.dirty
+    ||registerForm.controls.age?.touched)">
+              age is required.
+            </td>
+          </tr>
+          <tr>
+            <td><label for="country">country </label></td>
+            <td>
+              <select id="country" name="country" formControlName="country">
+                <option value="">---</option>
+                <option [ngValue]="c.name" *ngFor="let c of countryList">
+                  {{c.name}}
+                </option>
+              </select>
+            </td>
+            <td style="color: red"
+                *ngIf="!registerForm.controls.country?.valid && (registerForm.controls.country?.dirty
+    ||registerForm.controls.country?.touched)">
+              country is required.
+            </td>
+          </tr>
+          <tr>
+            <td><label for="phone">Phone </label>
+            </td>
+            <td><input type="text" id="phone" formControlName="phone">
+            </td>
+            <td style="color: red"
+                *ngIf="!registerForm.controls.phone?.valid && (registerForm.controls.phone?.dirty
+    ||registerForm.controls.phone?.touched)">
+              country is required.
+            </td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>
+              <button (click)="reset()">Reset</button>
+              <button type="submit" [disabled]="registerForm.invalid">Submit</button>
+            </td>
+          </tr>
+        </table>
+      </form>
+    </div>
+    <div class="col-md-8">
+      <table class="table table-hover table-borderless table-responsive-md table-striped ">
+        <thead class="thead-dark">
+        <tr>
+          <th scope="col">Username</th>
+          <th scope="col">Email</th>
+          <th scope="col">Password</th>
+          <th scope="col">Country</th>
+          <th scope="col">Age</th>
+          <th scope="col">Gender</th>
+          <th scope="col">PhoneNumber</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let user of users">
+          <td>{{user.username}}</td>
+          <td>{{user.email}}</td>
+          <td>{{user.password}}</td>
+          <td>{{user.country}}</td>
+          <td>{{user.age}}</td>
+          <td>{{user.gender}}</td>
+          <td>{{user.phone}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+
