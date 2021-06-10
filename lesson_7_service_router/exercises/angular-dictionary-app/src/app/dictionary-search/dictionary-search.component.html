@@ -1,0 +1,18 @@
+<label>Enter English Word</label>
+<input type="text" [(ngModel)]="inputWord">
+
+<button type="submit" (click)="getWordVietnameseMean(inputWord)">Translate</button>
+<table>
+  <tr *ngFor="let w of words">
+    <td>
+      <button (click)="getWordVietnameseMean(w.englishMean)">{{w.englishMean}}</button>
+    </td>
+    <td>
+    <td>
+      <a [routerLink]="['/dictionary/details',w.englishMean]">Detail</a></td>
+  </tr>
+  <tr>Vietnamese Mean: <span style="color: red">{{vietnameseMean}}</span></tr>
+</table>
+
+
+
