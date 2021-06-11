@@ -14,8 +14,11 @@
         </small>
 
         <small style="color: red;"
-               *ngIf="loginForm.controls.email.touched && loginForm.controls.email.errors?.email">
-          email address not well format.
+               *ngIf="!loginForm.controls.email?.valid && (loginForm.controls.email?.dirty
+    ||loginForm.controls.email?.touched)">
+          <div [hidden]="!loginForm.controls.email?.hasError('email')">
+            <span style="color:red;">email address not well format.</span>
+          </div>
         </small>
       </td>
     </tr>

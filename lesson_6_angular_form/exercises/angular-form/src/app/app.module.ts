@@ -3,15 +3,15 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { RegistrationComponent } from './registration/registration.component';
 import { SigninComponent } from './login/signin.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { MyRegisterPageComponent } from './my-register-page/my-register-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegistrationComponent,
-    SigninComponent
+    SigninComponent,
+    MyRegisterPageComponent
   ],
   imports: [
     BrowserModule,
