@@ -3,14 +3,14 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DictionarySearchComponent } from './dictionary-search/dictionary-search.component';
-import { DictionaryDetailComponent } from './dictionary-detail/dictionary-detail.component';
 import {FormsModule} from '@angular/forms';
+import { DictionaryPageComponent } from './dictionary-page/dictionary-page.component';
+import {DictionaryDetailComponent} from './dictionary-detail/dictionary-detail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DictionarySearchComponent,
+    DictionaryPageComponent,
     DictionaryDetailComponent
   ],
     imports: [

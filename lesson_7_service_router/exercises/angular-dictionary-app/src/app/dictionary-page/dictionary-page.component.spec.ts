@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DictionarySearchComponent } from './dictionary-search.component';
+import { DictionaryPageComponent } from './dictionary-page.component';
 
-describe('DictionarySearchComponent', () => {
-  let component: DictionarySearchComponent;
-  let fixture: ComponentFixture<DictionarySearchComponent>;
+describe('DictionaryPageComponent', () => {
+  let component: DictionaryPageComponent;
+  let fixture: ComponentFixture<DictionaryPageComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ DictionarySearchComponent ]
+      declarations: [ DictionaryPageComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(DictionarySearchComponent);
+    fixture = TestBed.createComponent(DictionaryPageComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

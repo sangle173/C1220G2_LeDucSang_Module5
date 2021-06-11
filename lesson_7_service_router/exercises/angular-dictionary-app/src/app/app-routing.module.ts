@@ -1,17 +1,17 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import {NgModule} from '@angular/core';
+import {Routes, RouterModule} from '@angular/router';
+import {DictionaryPageComponent} from './dictionary-page/dictionary-page.component';
 import {DictionaryDetailComponent} from './dictionary-detail/dictionary-detail.component';
-import {DictionarySearchComponent} from './dictionary-search/dictionary-search.component';
 
 
 const routes: Routes = [
   {
-    path: 'dictionary/details/:inputword',
+    path: 'dictionary/details/:word',
     component: DictionaryDetailComponent
   },
   {
     path: 'dictionary/list',
-    component: DictionarySearchComponent
+    component: DictionaryPageComponent
   }
 ];
 
@@ -19,4 +19,5 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {
+}

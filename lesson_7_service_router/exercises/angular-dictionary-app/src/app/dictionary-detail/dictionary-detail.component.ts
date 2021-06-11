@@ -9,20 +9,17 @@ import {Dictionary} from '../model/dictionary';
   styleUrls: ['./dictionary-detail.component.css']
 })
 export class DictionaryDetailComponent implements OnInit {
-  dictionary: Dictionary;
+
+  word: any;
 
   constructor(private dictionaryService: DictionarysService,
-              private activatedRoute: ActivatedRoute
-  ) {
-    const inputString = this.activatedRoute.snapshot.params.englishMean;
-    this.dictionary = this.getDictionary(inputString);
+              private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {
-  }
-
-  // @ts-ignore
-  private getDictionary(inputWord: string): Dictionary {
-    this.dictionaryService.getDetailsByEnglishMean(inputWord);
+    this.activatedRoute.paramMap.subscribe((paramMap: ParamMap) => {
+      const word = paramMap.get('word');
+      this.word = this.dictionaryService.getDetailsByEnglishMean(word);
+    });
   }
 }
