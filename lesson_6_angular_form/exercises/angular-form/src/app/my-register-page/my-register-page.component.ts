@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {AbstractControl, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
-import {User} from '../user';
+import {Password, User} from '../user';
 
 class Country {
   id: number;
@@ -20,7 +20,10 @@ export class MyRegisterPageComponent implements OnInit {
       userId: '000001',
       email: 'sangle@gmail.com',
       name: 'Sang Le',
-      password: '1234567',
+      passwords: {
+        password: '1234567',
+        passwordConfirmation: '1234567'
+      },
       country: 'Japan',
       age: 19,
       gender: 'male',
@@ -31,7 +34,10 @@ export class MyRegisterPageComponent implements OnInit {
       userId: '000002',
       email: 'dongtran@gmail.com',
       name: 'Dong Tran',
-      password: '1234567',
+      passwords: {
+        password: '1234567',
+        passwordConfirmation: '1234567'
+      },
       country: 'Japan',
       age: 19,
       gender: 'male',
@@ -42,7 +48,10 @@ export class MyRegisterPageComponent implements OnInit {
       userId: '000003',
       email: 'duchau@gmail.com',
       name: 'Hau Duc',
-      password: '1234567',
+      passwords: {
+        password: '1234567',
+        passwordConfirmation: '1234567'
+      },
       country: 'Japan',
       age: 19,
       gender: 'male',
@@ -52,7 +61,10 @@ export class MyRegisterPageComponent implements OnInit {
       userId: '000004',
       email: 'congnguyen@gmail.com',
       name: 'Nguyen Cong',
-      password: '1234567',
+      passwords: {
+        password: '1234567',
+        passwordConfirmation: '1234567'
+      },
       country: 'Japan',
       age: 19,
       gender: 'male',
@@ -61,7 +73,7 @@ export class MyRegisterPageComponent implements OnInit {
   ];
 
   countryList: Country[] = [
-    {id: 1, name: 'Viet Name'},
+    {id: 1, name: 'Viet Nam'},
     {id: 2, name: 'Japan'},
     {id: 3, name: 'England'},
     {id: 4, name: 'UAE'},
@@ -89,7 +101,7 @@ export class MyRegisterPageComponent implements OnInit {
       phone: ['', Validators.compose([Validators.required, Validators.minLength(10), Validators.maxLength(12)])],
       country: ['', Validators.compose([Validators.required])],
       gender: ['', Validators.compose([Validators.required])],
-      age: ['', Validators.compose([Validators.required, Validators.min(18), Validators.max(60), Validators.pattern('[0-9]')])],
+      age: ['', Validators.compose([Validators.required, Validators.min(18), Validators.max(60), Validators.pattern('[0-9]*')])],
       passwords: this.fb.group({
           password: ['', [Validators.required, Validators.maxLength(30), Validators.minLength(6)]],
           passwordConfirmation: ''
@@ -101,12 +113,12 @@ export class MyRegisterPageComponent implements OnInit {
   checkPasswords(group: FormGroup) {
     const password = group.get('password') as FormControl;
     const confirmPassword = group.get('passwordConfirmation') as FormControl;
-
     return password.value === confirmPassword.value ? null : {mismatch: true};
   }
 
   onSubmit() {
     this.users.push(this.registrationForm.value);
+    console.log(this.registrationForm.value);
     alert('Thanh Cong');
   }
 

@@ -160,6 +160,13 @@
     </form>
   </div>
   <div class="col-md-8">
+    <div class="row">
+      <div class="container-fluid text-center">
+        <h3 class="h3 text-success"> User List
+        </h3>
+      </div>
+
+    </div>
     <table class="table table-hover table-borderless table-responsive-md table-striped ">
       <thead class="thead-dark">
       <tr>
@@ -173,12 +180,12 @@
         <th scope="col">Country</th>
       </tr>
       </thead>
-      <tbody>
+      <tbody class="text-dark">
       <tr *ngFor="let user of users">
         <td>{{user.userId}}</td>
         <td>{{user.name}}</td>
         <td>{{user.email}}</td>
-        <td>{{user.password}}</td>
+        <td>{{user.passwords.password}}</td>
         <td>{{user.gender}}</td>
         <td>{{user.age}}</td>
         <td>{{user.phone}}</td>
