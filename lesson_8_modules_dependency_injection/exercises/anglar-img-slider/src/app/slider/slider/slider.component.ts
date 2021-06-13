@@ -41,7 +41,24 @@ export class SliderComponent implements OnInit {
     ,
     {
       id: 8,
+      url: '../assets/img/8.jpg'
+    },
+    {
+      id: 9,
       url: '../assets/img/9.jpg'
+    },
+    {
+      id: 10,
+      url: '../assets/img/10.jpg'
+    },
+    {
+      id: 11,
+      url: '../assets/img/11.jpg'
+    }
+    ,
+    {
+      id: 12,
+      url: '../assets/img/12.jpg'
     }
   ];
 

@@ -3,10 +3,10 @@ body {
 }
 
 
-img {
-  width: 700px;
-  height: 700px;
-}
+/*img {*/
+/*  width: 700px;*/
+/*  height: 700px;*/
+/*}*/
 
 .prev, .next {
   cursor: pointer;
