@@ -1,0 +1,8 @@
+<div class="container w50 text-center">
+  <h2 class="h2 text-info">MY SLIDER BY ANGULAR</h2>
+  <img class="text-center" [src]="imgs[current].url" alt="">
+  <div class="text-center mt-5">
+    <button (click)="getPrevious()" class="btn btn-outline-primary btn-info mr-5 text-white">previous</button>
+    <button (click)="getNext()" class="btn btn-outline-primary text-white btn-primary">next</button>
+  </div>
+</div>
