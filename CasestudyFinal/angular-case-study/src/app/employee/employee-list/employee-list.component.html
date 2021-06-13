@@ -1,0 +1,57 @@
+<div class="row">
+  <div class="container-fluid">
+    <table class="table table-borderless table-hover table-striped table-responsive-md">
+      <thead class="">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>birthday</th>
+        <th>idCard</th>
+        <th>salary</th>
+        <th>phoneNumber</th>
+        <th>email</th>
+        <th>address</th>
+        <th>education</th>
+        <th>position</th>
+        <th>department</th>
+        <th>view</th>
+        <th>edit</th>
+        <th>delete</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let employee of employees  | slice: (page-1) * pageSize : page * pageSize">
+        <td>{{employee.id}}</td>
+        <td>{{employee.name}}</td>
+        <td>{{employee.birthday}}</td>
+        <td>{{employee.idCard}}</td>
+        <td>{{employee.salary}}</td>
+        <td>{{employee.phoneNumber}}</td>
+        <td>{{employee.email}}</td>
+        <td>{{employee.address}}</td>
+        <td>{{employee.education}}</td>
+        <td>{{employee.position}}</td>
+        <td>{{employee.department}}</td>
+        <td><a [routerLink]="['/employees/view',employee.id]">view</a></td>
+        <td><a [routerLink]="['/employees/edit',employee.id]">edit</a></td>
+        <td><a [routerLink]="['/employees/delete',employee.id]">delete</a></td>
+        <td>
+      </tr>
+      </tbody>
+    </table>
+    <div class="d-flex justify-content-between p-2">
+      <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
+      </ngb-pagination>
+
+      <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+        <option [ngValue]="2">2 items per page</option>
+        <option [ngValue]="4">4 items per page</option>
+        <option [ngValue]="6">6 items per page</option>
+        <option [ngValue]="8">8 items per page</option>
+        <option [ngValue]="10">10 items per page</option>
+      </select>
+    </div>
+
+  </div>
+</div>
+
