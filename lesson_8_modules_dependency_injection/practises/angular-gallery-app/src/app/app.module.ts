@@ -3,18 +3,18 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { ImageGallerComponent } from './image-gallery/image-card/image-galler/image-galler.component';
-import {ImageGalleryComponent} from './image-gallery/image-gallery.component';
+import {SharedModule} from './shared/shared.module';
+import {CategoryModule} from './category/category.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ImageGallerComponent,
-    ImageGalleryComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SharedModule,
+    CategoryModule
   ],
   providers: [],
   bootstrap: [AppComponent]
