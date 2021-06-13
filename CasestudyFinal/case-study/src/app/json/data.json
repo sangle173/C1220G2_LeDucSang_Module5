@@ -66,19 +66,6 @@
       "id": 7
     },
     {
-      "name": "Tran Gia Khanh",
-      "birthday": "1992-06-16",
-      "idCard": "2077665544",
-      "salary": 2000,
-      "phoneNumber": "0908999999",
-      "email": "sangle@gmail.com",
-      "address": "Da Nang",
-      "education": "A",
-      "position": "Supervisor",
-      "department": "Kitchen",
-      "id": 8
-    },
-    {
       "name": "Tran Gia Manh",
       "birthday": "1992-06-16",
       "idCard": "2077665544",
@@ -227,7 +214,7 @@
   "positions": [
     {
       "id": 1,
-      "name": "staff"
+      "name": "Staff"
     },
     {
       "id": 2,
