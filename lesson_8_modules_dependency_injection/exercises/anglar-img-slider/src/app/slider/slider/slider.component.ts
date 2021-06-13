@@ -8,7 +8,7 @@ import {Img} from '../../img';
   styleUrls: ['./slider.component.css'],
 })
 export class SliderComponent implements OnInit {
-  current = 0;
+  currentIndex = 0;
   imgs: Img[] = [
     {
       id: 1,
@@ -52,18 +52,18 @@ export class SliderComponent implements OnInit {
   }
 
   getPrevious() {
-    if (this.current === 0) {
-      this.current = this.imgs.length;
+    if (this.currentIndex === 0) {
+      this.currentIndex = (this.imgs.length - 1);
     } else {
-      this.current -= 1;
+      this.currentIndex -= 1;
     }
   }
 
   getNext() {
-    if (this.current === this.imgs.length) {
-      this.current = 0;
+    if (this.currentIndex === (this.imgs.length - 1)) {
+      this.currentIndex = 0;
     } else {
-      this.current += 1;
+      this.currentIndex += 1;
     }
   }
 }
