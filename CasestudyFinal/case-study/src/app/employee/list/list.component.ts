@@ -8,14 +8,16 @@ import {EmployeeService} from '../../service/employee.service';
   styleUrls: ['./list.component.css']
 })
 export class ListComponent implements OnInit {
-
-  page = 1;
-  pageSize = 6;
-  collectionSize: number;
   employees: Employee[] = [];
   idEdit: number;
   employee: Employee;
   nameEdit: string;
+  nameSearch: string;
+  emailSearch: string;
+  addressSearch: string;
+  key = 'id';
+  reverse = false;
+  page = 1;
 
   constructor(private employeeService: EmployeeService,
   ) {
@@ -29,7 +31,6 @@ export class ListComponent implements OnInit {
   getAll() {
     this.employeeService.getAll().subscribe(employees => {
       this.employees = employees;
-      this.collectionSize = this.employees.length;
     });
   }
 
@@ -47,5 +48,10 @@ export class ListComponent implements OnInit {
     }, e => {
       console.log(e);
     });
+  }
+
+  sort(key) {
+    this.key = key;
+    this.reverse = !this.reverse;
   }
 }

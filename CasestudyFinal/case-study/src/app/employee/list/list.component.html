@@ -1,16 +1,25 @@
-<div class="row">
-  <div class="col-md-6 text-center"><h2 class="text-info">EMPLOYEE MANAGER</h2></div>
-  <div class="col-md-6 text-center">
-    <h2 class="text-info"><a routerLink="/employees/create" class="btn btn-outline-primary">NEW EMPLOYEE</a></h2>
+<div class="row" style="height: 600px">
+  <div class="col-md-2">
+    <h2 class="h2 text-success">FILTER</h2>
+    <label for="nameSearch">Search By Name:</label>
+    <input type="text" class="form-control" id="nameSearch" [(ngModel)]="nameSearch">
+    <label for="emailSearch">Search By Email:</label>
+    <input type="text" class="form-control" id="emailSearch" [(ngModel)]="emailSearch">
+    <label for="companySearch">Search By address:</label>
+    <input type="text" class="form-control" id="companySearch" [(ngModel)]="addressSearch">
   </div>
-</div>
-<div class="row">
-  <div class="container-fluid">
-    <table class="table table-borderless table-hover table-striped table-responsive-md">
+  <div class="col-md-10">
+    <div class="row">
+      <div class="col-md-6 text-center"><h2 class="text-info">EMPLOYEE MANAGER</h2></div>
+      <div class="col-md-6 text-center">
+        <h2 class="text-info"><a routerLink="/employees/create" class="btn btn-outline-primary">NEW EMPLOYEE</a></h2>
+      </div>
+    </div>
+    <table class="table table-hover table-striped">
       <thead class="thead-dark">
       <tr>
-        <th>Id</th>
-        <th>Name</th>
+        <th (click)="sort('id')" style="width: 5%;">Id <i class="fa fa-sort"></i></th>
+        <th (click)="sort('name')" style="width: 10%;">Name <i class="fa fa-sort"></i></th>
         <th>birthday</th>
         <th>idCard</th>
         <th>salary</th>
@@ -26,7 +35,8 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let employee of employees  | slice: (page-1) * pageSize : page * pageSize">
+      <tr
+        *ngFor="let employee of employees |searchEmployee:nameSearch:emailSearch:addressSearch| paginate: {itemsPerPage: 6, currentPage: page}| orderBy: key: reverse">
         <td>{{employee.id}}</td>
         <td>{{employee.name}}</td>
         <td>{{employee.birthday}}</td>
@@ -38,56 +48,76 @@
         <td>{{employee.education}}</td>
         <td>{{employee.position}}</td>
         <td>{{employee.department}}</td>
-        <td><a [routerLink]="['/employees/view',employee.id]"
-               class="btn-outline-primary btn btn-info text-white">view</a></td>
-        <td><a [routerLink]="['/employees/edit',employee.id]" class="btn-outline-primary btn btn-warning text-white">edit</a>
+        <td>
+          <button [routerLink]="['/employees/view',employee.id]" type="button" class="btn btn-muted text-info"
+                  data-toggle="modal"
+                  data-target="#exampleModalLong" (click)="sendIdToComponent(employee.id)">
+            <i class="far fa-eye" style="font-size: 1.5rem"></i>
+          </button>
         </td>
-        <!--        <td><a [routerLink]="['/employees/delete',employee.id]" class="btn-outline-primary btn btn-danger text-white">delete</a></td>-->
+        <td><a [routerLink]="['/employees/edit',employee.id]" class="btn btn-muted text-warning"><i
+          class="fas fa-user-edit" style="font-size: 1.5rem"></i></a>
+        </td>
         <td>
           <!-- Button trigger modal -->
-          <button type="button" class="btn btn-danger btn-outline-primary" data-toggle="modal"
+          <button type="button" class="btn btn-muted text-danger" data-toggle="modal"
                   data-target="#exampleModal" (click)="sendIdToComponent(employee.id)">
-            delete
+            <i class="far fa-trash-alt" style="font-size: 1.5rem"></i>
           </button>
         </td>
         <td>
       </tr>
       </tbody>
     </table>
-    <div class="d-flex justify-content-between p-2">
-      <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
-      </ngb-pagination>
+    <pagination-controls (pageChange)="page= $event"></pagination-controls>
+  </div>
 
-      <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
-        <option [ngValue]="2">2 items per page</option>
-        <option [ngValue]="4">4 items per page</option>
-        <option [ngValue]="6">6 items per page</option>
-        <option [ngValue]="8">8 items per page</option>
-        <option [ngValue]="10">10 items per page</option>
-      </select>
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+       aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>Do you want to delete this employee <span style="color: red">{{nameEdit}}</span></p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="deleteemployee()">Delete</button>
+        </div>
+      </div>
     </div>
-
   </div>
 </div>
 
+<!-- Button trigger modal -->
+
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+<div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
      aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Employee Info</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <p>Do you want to delete this employee <span style="color: red">{{nameEdit}}</span></p>
+        <table>
+          <tr>
+            <td>Name:</td>
+            <td>{{nameEdit}}</td>
+        </table>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary" (click)="deleteemployee()">Delete</button>
       </div>
     </div>
   </div>
