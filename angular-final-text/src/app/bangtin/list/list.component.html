@@ -1,0 +1,59 @@
+<div class="row" style="height: 600px">
+  <div class="col-md-2">
+    <h2 class="h2 text-success">FILTER</h2>
+    <label for="dientich">Tìm theo Diện tích:</label>
+    <input type="text" class="form-control" id="dientich" #dientichTimKiem>
+    <label for="gia">Tìm theo Giá:</label>
+    <input type="text" class="form-control" id="gia" #giaTimKiem>
+    <label for="huong">Tìm theo hướng:</label>
+    <select class="form-control" #huongTimKiem id="huong">
+      <option value="">Chọn Hướng</option>
+      <option value="Đông">Đông</option>
+      <option value="Tây">Tây</option>
+      <option value="Nam">Nam</option>
+      <option value="Bắc">Bắc</option>
+    </select>
+    <button type="button" class="btn btn-primary mt-2"
+            (click)="search(dientichTimKiem.value, giaTimKiem.value, huongTimKiem.value)">Search
+    </button>
+  </div>
+  <div class="col-md-10">
+    <div class="row">
+      <div class="col-md-6 text-center"><h2 class="text-info">Danh Sach Bảng Tin</h2></div>
+      <div class="col-md-6 text-center">
+        <h2 class="text-info"><a routerLink="/bangtin/taomoi" class="btn btn-outline-primary">Tạo Mới</a></h2>
+      </div>
+    </div>
+    <table class="table table-hover table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th>Tiêu Đề</th>
+        <th>Loại Bài Viêt</th>
+        <th>Danh Mục</th>
+        <th>Ngày Đăng</th>
+        <th>Trạng Thái</th>
+        <th>Diện Tích</th>
+        <th>Giá</th>
+        <th>Hướng</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let bangtin of bangtinDanhSach">
+        <td>{{bangtin.id}}</td>
+        <td>{{bangtin.loaiTin}}</td>
+        <td>{{bangtin.danhmuc}}</td>
+        <td>{{bangtin.ngayDang| date: 'dd-MM-yyyy'}}</td>
+        <td>{{bangtin.trangthai}}</td>
+        <td>{{bangtin.dientich}}</td>
+        <td>{{bangtin.gia}}</td>
+        <td>{{bangtin.huong}}</td>
+      </tr>
+      <tr *ngIf="bangtinDanhSach.length==0" class="text-center">
+        <td colspan="8">
+          <h3 class="text-danger">Không Có Bảng Tin</h3>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

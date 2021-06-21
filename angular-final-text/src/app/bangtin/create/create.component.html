@@ -1,0 +1,143 @@
+<div class="row">
+  <div class="container">
+    <h2 class="h2 text-info">Tạo Mới Bang Tin</h2>
+    <h3 class="h3 text-success"></h3>
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="danhmuc">Danh Mục:</label>
+        <select id="danhmuc" class="form-control" formControlName="danhmuc">
+          <option value="" disabled>Chọn Danh Mục</option>
+          <option [ngValue]="danhmuc.ten" *ngFor="let danhmuc of danhmucs">
+            {{danhmuc.ten}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="vungmien">Vùng Miền:</label>
+        <select id="vungmien" class="form-control" formControlName="vungmien">
+          <option value="" disabled>Chọn Vùng Miền</option>
+          <option [ngValue]="vungmien.ten" *ngFor="let vungmien of vungmiens">
+            {{vungmien.ten}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-4">
+            <label>Bạn là:</label>
+          </div>
+          <div class="col-md-4">
+            <input type="radio" class="form-check" value="Cong Ty" formControlName="toChuc">
+            Cong ty
+          </div>
+          <div class="col-md-4">
+            <input type="radio" class="form-check" value="Ca Nhan" formControlName="toChuc"> Cá Nhân
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-4">
+            <label>Bạn Đăng Tin:</label>
+          </div>
+          <div class="col-md-4">
+            <input type="radio" class="form-check" value="Cần bán" formControlName="loaiTin">
+            Cần Bán
+          </div>
+          <div class="col-md-4">
+            <input type="radio" class="form-check" value="Cần mua" formControlName="loaiTin"> Cần mua
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="center-block">Địa Chỉ: </label>
+        <textarea class="form-control" cols="100%" rows="10" formControlName="diachi"></textarea>
+        <div *ngIf="diachi.invalid && (diachi.dirty || diachi.touched)" class="alert alert-danger">
+          <div *ngIf="diachi.errors.required">
+            địa chỉ không được bỏ trống.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-4">
+            <label>Tình trạng:</label>
+          </div>
+          <div class="col-md-4">
+            <input type="radio" class="form-check" value="Mới" formControlName="tinhTrang">
+            Mới
+          </div>
+          <div class="col-md-4">
+            <input type="radio" class="form-check" value="Đã Sử Dụng" formControlName="tinhTrang"> Đã Sử dụng
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="center-block">Diện Tích: </label>
+        <input class="form-control" formControlName="dientich">
+        <div *ngIf="dientich.invalid && (dientich.dirty || dientich.touched)" class="alert alert-danger">
+          <div *ngIf="dientich.errors.required">
+            diện tích không được bỏ trống.
+          </div>
+          <div *ngIf="dientich.errors.pattern">
+            diện tích phải là một số.
+          </div>
+          <div *ngIf="dientich.errors.min">
+            diện tích phải lớn hơn 20m2.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="huong">Hướng:</label>
+        <select id="huong" class="form-control" formControlName="huong">
+          <option value="" disabled>Chọn Hướng</option>
+          <option [ngValue]="h.ten" *ngFor="let h of huongs">
+            {{h.ten}}
+          </option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="center-block">Tựa Đề: </label>
+        <input class="form-control" formControlName="tuaDe">
+        <div *ngIf="tuaDe.invalid && (tuaDe.dirty || tuaDe.touched)" class="alert alert-danger">
+          <div *ngIf="tuaDe.errors.required">
+            tựa đề không được bỏ trống.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="center-block">Nội dung: </label>
+        <input class="form-control" formControlName="noiDung"/>
+        <div *ngIf="noiDung.invalid && (noiDung.dirty || noiDung.touched)" class="alert alert-danger">
+          <div *ngIf="noiDung.errors.required">
+            nội dung không được bỏ trống.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="center-block">Giá: </label>
+        <input type="number" class="form-control" formControlName="gia">
+        <div *ngIf="gia.invalid && (gia.dirty || gia.touched)" class="alert alert-danger">
+          <div *ngIf="gia.errors.required">
+            giá không được để trống.
+          </div>
+          <div *ngIf="gia.errors.pattern">
+            giá phải là một số.
+          </div>
+          <div *ngIf="gia.errors.min">
+            giá phải lớn hơn 100000000 triệu.
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="center-block">Ngày Đăng: </label>
+        <input type="date" class="form-control" formControlName="ngayDang">
+      </div>
+      <div class="form-group">
+        <label class="center-block">Trạng Thái: </label>
+        <input type="text" class="form-control" formControlName="trangthai">
+      </div>
+      <input type="submit" value="Confirm" class="btn btn-primary" [disabled]="registerForm.invalid">
+    </form>
+  </div>
+</div>

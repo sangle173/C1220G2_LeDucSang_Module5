@@ -1,0 +1,192 @@
+{
+  "product": [
+    {
+      "id": 2,
+      "name": "Dell vostro 17",
+      "price": "2000",
+      "dateProduction": "2020-07-18",
+      "quantity": 9,
+      "brand": "Dell"
+    },
+    {
+      "id": 3,
+      "name": "Latitue 14",
+      "price": "2000",
+      "dateProduction": "2020-06-20",
+      "quantity": 5,
+      "brand": "Dell"
+    },
+    {
+      "id": 4,
+      "name": "Macbook Air M1",
+      "price": "1000",
+      "dateProduction": "2020-08-17",
+      "quantity": 19,
+      "brand": "Apple"
+    }
+  ],
+  "bangtin": [
+    {
+      "id": 1,
+      "danhmuc": "Nhà Đất",
+      "vungmien": "Hà Nội",
+      "toChuc": "Cá Nhân",
+      "loaiTin": "Cần bán",
+      "tinhTrang": "Mới",
+      "diachi": "Hà Đông",
+      "dientich": 1000,
+      "huong": "Đông",
+      "tuaDe": "Bất động sản",
+      "noiDung": "Không rõ",
+      "gia": 200000,
+      "ngayDang": "2020-08-19",
+      "trangthai": "Đang Rao"
+    },
+    {
+      "id": 2,
+      "danhmuc": "Nhà Đất",
+      "vungmien": "Hà Nội",
+      "toChuc": "Cá Nhân",
+      "loaiTin": "Cần bán",
+      "tinhTrang": "Mới",
+      "diachi": "Hà Đông",
+      "dientich": 300,
+      "huong": "Đông",
+      "tuaDe": "Bất động sản",
+      "noiDung": "Không rõ",
+      "gia": 300000,
+      "ngayDang": "2020-08-20",
+      "trangthai": "Chưa duyệt"
+    },
+    {
+      "id": 3,
+      "danhmuc": "Nhà Đất",
+      "vungmien": "Hà Nội",
+      "toChuc": "Cá Nhân",
+      "loaiTin": "Cần bán",
+      "tinhTrang": "Mới",
+      "diachi": "Hà Đông",
+      "dientich": 2500,
+      "huong": "Bắc",
+      "tuaDe": "Bất động sản",
+      "noiDung": "Không rõ",
+      "gia": 2500000,
+      "ngayDang": "2020-09-21",
+      "trangthai": "Đang Rao"
+    },
+    {
+      "id": 4,
+      "danhmuc": "Nhà Đất",
+      "vungmien": "Hà Nội",
+      "toChuc": "Cá Nhân",
+      "loaiTin": "Cần bán",
+      "tinhTrang": "Mới",
+      "diachi": "Hà Đông",
+      "dientich": 2000,
+      "huong": "Nam",
+      "tuaDe": "Bất động sản",
+      "noiDung": "Không rõ",
+      "gia": 1500000,
+      "ngayDang": "2020-08-29",
+      "trangthai": "Đã duyệt"
+    },
+    {
+      "danhmuc": "Nhà Đất",
+      "vungmien": "Hà Nội",
+      "toChuc": "Cong Ty",
+      "loaiTin": "Cần bán",
+      "tinhTrang": "Mới",
+      "diachi": "Đà Nẵng",
+      "dientich": "1000",
+      "huong": "Tây",
+      "tuaDe": "Phòng trọ",
+      "noiDung": "Cho Thuê Phòng",
+      "gia": 10000000000,
+      "ngayDang": "2021-11-06",
+      "trangthai": "Đã duyệt",
+      "id": 5
+    },
+    {
+      "danhmuc": "Nhà Đất",
+      "vungmien": "Sài Gòn",
+      "toChuc": "Cong Ty",
+      "loaiTin": "Cần bán",
+      "tinhTrang": "Mới",
+      "diachi": "Quận 7",
+      "dientich": "500",
+      "huong": "Tây",
+      "tuaDe": "Không biết",
+      "noiDung": "Oke",
+      "gia": 200000000,
+      "ngayDang": "1992-11-01",
+      "trangthai": "Đã Duyêt",
+      "id": 6
+    },
+    {
+      "danhmuc": "Nhà Trọ",
+      "vungmien": "Hà Nội",
+      "toChuc": "Ca Nhan",
+      "loaiTin": "Cần bán",
+      "tinhTrang": "Mới",
+      "diachi": "gf",
+      "dientich": "129",
+      "huong": "Đông",
+      "tuaDe": "345678",
+      "noiDung": "345678",
+      "gia": 123456789,
+      "ngayDang": "2021-06-16",
+      "trangthai": "dã",
+      "id": 7
+    }
+  ],
+  "huong": [
+    {
+      "id": 1,
+      "ten": "Đông"
+    },
+    {
+      "id": 2,
+      "ten": "Tây"
+    },
+    {
+      "id": 3,
+      "ten": "Nam"
+    },
+    {
+      "id": 4,
+      "ten": "Bắc"
+    }
+  ],
+  "danhmuc": [
+    {
+      "id": 1,
+      "ten": "Nhà Đất"
+    },
+    {
+      "id": 2,
+      "ten": "Nhà Trọ"
+    },
+    {
+      "id": 3,
+      "ten": "Chung Cư"
+    }
+  ],
+  "vungmien": [
+    {
+      "id": 1,
+      "ten": "Hà Nội"
+    },
+    {
+      "id": 2,
+      "ten": "Sài Gòn"
+    },
+    {
+      "id": 3,
+      "ten": "Đà Nẵng"
+    },
+    {
+      "id": 4,
+      "ten": "Phú Quốc"
+    }
+  ]
+}
